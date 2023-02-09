@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Planner To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Trip Checklist</h1>
+    <h2>Add Tasks</h2>
+    <form action="/addtask" method="POST">
+        <input type="text" placeholder="Enter Task Here" name="todotask">
+        <input type="text" placeholder="Task Assignee" name="taskassignee">
+        <input type="date" placeholder="Due Date" name="taskduedate">
+        <input type="submit">
+    </form>
+    <!-- LIST WILL GO HERE-->
+    <h2>Current Tasks</h2>
+
+    <ul class="ToDos">
+    <% for(let i = 0; i < info.length; i++) {%>
+        <li class="ToDo">
+            <span><%= info[i].todotask %></span>
+            <span><%= info[i].taskassignee %></span>
+            <span><%= info[i].taskduedate %></span>
+            <span class='fa fa-thumbs-up'></span>
+            <i class='fa fa-trash'></i>
+        </li>
+    <% } %>
+    </ul>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
